@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INDSAR - Muebles de Metal y Melamina</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- AOS Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #0a0a0a url('https://images.unsplash.com/photo-1558618666-fcd25b94b5c9?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') fixed center/cover;
+            color: #e0e0e0;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.88);
+            z-index: -1;
+        }
+
+        #main { max-width: 1350px; margin: 0 auto; position: relative; }
+
+        /* ==================== CARRUSEL HEADER ==================== */
+        #header {
+            position: relative;
+            height: 450px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.9);
+            border-bottom: 5px solid #b8860b;
+        }
+
+        .header-slider {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            animation: slider 18s infinite ease-in-out;
+        }
+
+        .header-slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Logo/Título encima del carrusel */
+        .header-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 10;
+            background: rgba(0,0,0,0.6);
+            padding: 30px 50px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 2px solid #ffd700;
+        }
+
+        .header-overlay h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 4rem;
+            color: #ffd700;
+            text-shadow: 0 0 20px rgba(255,215,0,0.6);
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+        }
+
+        .header-overlay p {
+            font-size: 1.4rem;
+            color: #fff;
+            letter-spacing: 2px;
+        }
+
+        @keyframes slider {
+            0%, 30%   { opacity: 1; transform: scale(1); }
+            33%, 63%  { opacity: 0; transform: scale(1.1); }
+            66%, 96%  { opacity: 1; transform: scale(1); }
+            100%      { opacity: 0; }
+        }
+
+        .slide1 { animation-delay: 0s; }
+        .slide2 { animation-delay: 6s; }
+        .slide3 { animation-delay: 12s; }
+
+        /* ==================== RESTO DEL DISEÑO ==================== */
+        h2, h3, b, .vl b {
+            font-family: 'Oswald', sans-serif;
+            color: #ffd700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .column_1 {
+            width: 22%;
+            padding: 40px 20px;
+            background: rgba(15,15,15,0.95);
+            backdrop-filter: blur(12px);
+            border-right: 1px solid #333;
+        }
+
+        .nn { list-style: none; }
+        .nn li a {
+            display: block;
+            padding: 18px 25px;
+            color: #ccc;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            border-bottom: 1px solid #333;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nn li a:hover {
+            background: linear-gradient(90deg, #b8860b, #ffd700);
+            color: #000;
+            padding-left: 40px;
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(255,215,0,0.5);
+        }
+
+        #content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 50px 20px;
+            gap: 40px;
+        }
+
+        .column_2 { flex: 1; display: flex; flex-wrap: wrap; gap: 40px; }
+        .column_left, .column_right { flex: 1; min-width: 320px; }
+
+        .title_content, .style1, .vl {
+            background: rgba(25,25,25,0.7);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #444;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            transition: all 0.5s ease;
+        }
+
+        .title_content:hover, .style1:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(255,215,0,0.25);
+            border-color: #b8860b;
+        }
+
+        /* ==================== EXPANDO ORIGINAL (funciona perfecto) ==================== */
+        img.expando {
+            cursor: pointer;
+            transition: transform 0.4s ease;
+            border-radius: 12px;
+            border: 2px solid #555;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+        }
+
+        /* El script original que ya tenías (lo dejamos intacto) */
+        <script>
+        if (document.images) {
+            (function() {
+                var cos, a = /Apple/.test(navigator.vendor), times = a ? 20 : 40, speed = a ? 40 : 20;
+                var expConIm = function(im) {
+                    im = im || window.event;
+                    if (!expConIm.r.test(im.className)) im = im.target || im.srcElement || null;
+                    if (!im || !expConIm.r.test(im.className)) return;
+                    var e = expConIm,
+                        widthHeight = function(dim) { return dim[0] * cos + dim[1] + 'px'; },
+                        resize = function() {
+                            cos = (1 - Math.cos((e.ims[i].jump / times) * Math.PI)) / 2;
+                            im.style.width = widthHeight(e.ims[i].w);
+                            im.style.height = widthHeight(e.ims[i].h);
+                            if (e.ims[i].d && times > e.ims[i].jump) {
+                                ++e.ims[i].jump;
+                                e.ims[i].timer = setTimeout(resize, speed);
+                            } else if (!e.ims[i].d && e.ims[i].jump > 0) {
+                                --e.ims[i].jump;
+                                e.ims[i].timer = setTimeout(resize, speed);
+                            }
+                        }, d = document.images, i = d.length - 1;
+                    for (i; i > -1; --i) if (d[i] == im) break;
+                    i = i + im.src;
+                    if (!e.ims[i]) {
+                        im.title = '';
+                        e.ims[i] = { im: new Image(), jump: 0 };
+                        e.ims[i].im.onload = function() {
+                            e.ims[i].w = [e.ims[i].im.width - im.width, im.width];
+                            e.ims[i].h = [e.ims[i].im.height - im.height, im.height];
+                            e(im);
+                        };
+                        e.ims[i].im.src = im.src;
+                        return;
+                    }
+                    if (e.ims[i].timer) clearTimeout(e.ims[i].timer);
+                    e.ims[i].d = !e.ims[i].d;
+                    resize();
+                };
+                expConIm.ims = {};
+                expConIm.r = new RegExp('\\bexpando\\b');
+                document.addEventListener('mouseover', expConIm, false);
+                document.addEventListener('mouseout', expConIm, false);
+            })();
+        }
+        </script>
+
+        /* Footer */
+        #footer {
+            background: linear-gradient(to top, #000, #111);
+            color: #999;
+            text-align: center;
+            padding: 50px 20px;
+            border-top: 4px solid #b8860b;
+            margin-top: 80px;
+        }
+
+        .dc {
+            padding: 25px;
+            background: #0a0a0a;
+            border-top: 1px solid #333;
+            text-align: center;
+        }
+
+        .dc a {
+            color: #aaa;
+            margin: 0 20px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .dc a:hover { color: #ffd700; }
+
+        @media (max-width: 968px) {
+            .column_1, .column_2 { width: 100%; }
+            #content { flex-direction: column; }
+            .header-overlay h1 { font-size: 2.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="main">
+
+    <!-- CARRUSEL HEADER -->
+    <div id="header" data-aos="fade">
+        <div class="header-slider slide1"><img src="Ed hardy/banner.jpeg" alt="INDSAR 1"></div>
+        <div class="header-slider slide2"><img src="Ed hardy/linea de almacenes-06.jpg" alt="INDSAR 2"></div>
+        <div class="header-slider slide3"><img src="Ed hardy/linea melamina-05.jpg" alt="INDSAR 3" width="200" height="53"></div>
+
+     
+    </div>
+
+    <div id="content">
+        <!-- Menú lateral -->
+        <div class="column_1 column" data-aos="fade-right" data-aos-delay="300">
+            <ul class="nn">
+                <li><a href="index.html">INICIO</li>
+                <li><a href="productos.html">PRODUCTOS</a></li>
+      
+            </ul>
+        </div>
+
+        <!-- Contenido principal -->
+        <div class="column_2 column">
+            <div class="column_left">
+
+                <div class="title_content" data-aos="fade-up" data-aos-delay="100">
+                    <p><img src="Ed hardy/escritorio.jpg" class="expando" alt="Escritorio"></p>
+                    <p><b>LINEA DE OFICINA</b><br>Escritorio ejecutivo premium · 7 cajas · Cuerina alto tráfico <a href="linea-oficina.html">ver más →</a></p>
+                </div>
+
+                <div class="style1" data-aos="fade-up" data-aos-delay="300">
+                    <img src="Ed hardy/estante1.jpg" class="expando" alt="Estante">
+                    <b>LINEA ESTANTERÍA</b><br>150 kg carga continua <a href="linea-almacenes.html">ver más →</a>
+                </div>
+
+                <div class="style1" data-aos="fade-up" data-aos-delay="500">
+                    <img src="Ed hardy/camilla.jpg" class="expando" alt="Camilla">
+                    <b>LINEA CLÍNICA</b><br>ISO 9001 · Soporta 180 kg <a href="linea-clinica.html">ver más →</a>
+                </div>
+
+                <div class="style1" data-aos="fade-up" data-aos-delay="700">
+                    <img src="Ed hardy/melamina 1.jpg" class="expando" alt="Melamina">
+                    <b>LINEA MELAMINA</b><br>15 mm espesor · Diseño premium <a href="linea-melamina.html">ver más →</a>
+                </div>
+
+            </div>
+
+            <div class="column_right">
+                <div style="text-align:center;margin:40px 0;" data-aos="zoom-in">
+                    <img src="images/1t2.gif" alt="">
+                </div>
+
+                <div class="vl" data-aos="fade-left" data-aos-delay="100"><b>LINEA DE OFICINA</b><br>Equipamiento integral para empresas. <a href="linea-oficina.html">detalles →</a></div>
+                <div class="vl" data-aos="fade-left" data-aos-delay="300"><b>LINEA ALMACENES</b><br>Estanterías Rack y góndolas. <a href="linea-almacenes.html">detalles →</a></div>
+                <div class="vl" data-aos="fade-left" data-aos-delay="500"><b>LINEA CLÍNICA</b><br>Mobiliario médico certificado. <a href="linea-clinica.html">detalles →</a></div>
+                <div class="vl" data-aos="fade-left" data-aos-delay="700"><b>LINEA MELAMINA</b><br>Acabados elegantes y resistentes. <a href="linea-melamina.html">detalles →</a></div>
+
+                <div style="text-align:center;margin:50px 0;" data-aos="zoom-in">
+                    <img src="images/1t3.gif" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dc" data-aos="fade-up">
+        <a href="index.html">* Compañía</a>
+        <a href="index-1.html">* Servicios</a>
+        <a href="index-2.html">* Soluciones</a>
+        <a href="index-3.html">* Proyectos</a>
+        <a href="index-4.html">* Contacto</a>
+    </div>
+
+    <div id="footer" data-aos="fade-up">
+        Copyright © 2025 INDSAR INDUSTRIES. Todos los derechos reservados.
+    </div>
+</div>
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        once: true,
+        duration: 1000,
+        easing: 'ease-out-cubic'
+    });
+</script>
+
+</body>
+</html>

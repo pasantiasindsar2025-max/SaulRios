@@ -1,0 +1,136 @@
+/* CSS Document */
+
+* { margin:0; padding:0;}
+body{background:#000;}
+img {border:0}
+
+.column {float:left;}
+.clear 	{clear:both;}
+
+#main {
+	margin:0 auto;
+	font:normal 11px Tahoma;
+	line-height:18px;
+	color:#9B9B9B;
+}
+.nn a	{text-decoration:none;}
+.nn a:hover {text-decoration:underline;} 
+
+input, textarea, select{			     
+	font:normal 12px Arial, Helvetica, sans-serif;			
+	color:#393737;
+}		
+
+/*††††††††††††††††††††††††††--^^^^--††††††††††††††††††††††††††††††*/
+
+#header 	{}
+#header_top {padding:19px 0px 19px 0px;}
+#header_top .indent {}
+#header_top .column_1 {width:298px;}
+#header_top .column_2 {width:468px;}
+#menu 		{height:23px}
+#content	{background:url(images/content_bg.jpg) 0 0 no-repeat; height:100%}
+#content .column_1	 {width:150px}
+#content .column_2	 {width:616px}
+li {
+	list-style:none;
+	line-height:13px;
+	background:url(images/li_bg.gif) 0 0 repeat-x;
+	margin:0px 0px 0px 0px;
+	padding:2px 0px 5px 0px;
+}
+li a {
+	color:#EBEBEB;
+	font:normal 10px Tahoma;
+	background:url(images/li_bullet.gif) 0 0 no-repeat;
+	padding:0px 0px 0px 20px;
+	text-transform:uppercase;
+}
+
+
+a {color:#C91600; font:normal 10px Tahoma}
+a:hover {text-decoration:none} 
+.rdmr  {
+	color:#93A51B; 
+	font:normal 12px arial; 
+	background:url(images/0blt1.gif) 0 0 no-repeat; 
+	padding:0px 0px 0px 18px;
+}
+
+.input {padding:3px 0px 3px 0px;}
+.input, .ta {
+	width:210px;
+	border:1px solid #C9BE92;
+	vertical-align:top;
+	color:#655A35;
+}
+.ta {
+	height:117px;
+	overflow:auto;
+}
+
+#footer {
+	background:#464646;
+	color:#000;
+	text-align:right;
+	font:normal 10px Tahoma;
+	text-transform:uppercase;
+	margin:14px 0px 20px 0px;
+	padding:0px 10px 0px 0px;
+}
+#footer a{color:#000; font:normal 10px Tahoma}
+
+
+/*®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®*/
+
+.vl {background:url(images/vl.jpg) 0 0 repeat-y; padding:1px 0px 3px 13px; line-height:13px; font-size:10px; margin:0px 0px 10px 0px;}
+.vl span {color:#C91600}
+.vl b {color:#FFF}
+
+.style1 {padding:10px 12px 5px 19px; line-height:13px; font-size:10px; margin:0px 0px 10px 0px; text-transform:none}
+.stele1 .o {color:#C91600}
+.style1 b {color:#FFF}
+.style1 a {color:#C91600; text-transform:capitalize}
+
+.title {height:22px; background:url(images/t_bg.jpg) 0 0 no-repeat}
+.title_content {border:1px solid #212121; border-top:none; font:normal 10px Tahoma; padding:0px 0px 18px 0px;}
+.title_content span {color:#FFF; text-transform:uppercase}
+.title_content .block {padding:6px 0px 0px 10px; line-height:14px}
+
+.title_content .spacer {width:20px}
+.title_content .col_1 {width:273px}
+.title_content .col_2 {width:273px}
+
+.title2 {margin:15px 0px 0px 0px; border-bottom:2px solid #C91600; padding:0px 0px 3px 9px; text-transform:uppercase; font:bold 12px Tahoma}
+
+.gl {background:url(images/gl.gif) 0 0 repeat-x; margin:0px 25px 0px 15px;}
+
+.table 		 {margin:2px 0px 0px 0px; text-transform:uppercase; color:#FFF}
+.table strong{color:#969595; text-transform:capitalize}
+.table .col1 {width:46px; float:left}
+.table .col1 span {margin:0px 0px 0px 9px;}
+.table .col2 {width:158px; float:left}
+.table .col3 {width:35px; float:left}
+.table .col4 {width:34px; float:left}
+
+.table .row_brown {background:#2C2B2B; padding:2px 0px 4px 0px;}
+.table .row_black {padding:2px 0px 4px 0px;}
+
+.input {
+    border: 1px solid #006;
+    background: #ffc;
+}
+
+input.ffsubmit
+{
+   font-size:11px;
+   font-family:Verdana,sans-serif;
+   font-weight:bold;
+   color:#31AAFF;
+   width:100px;
+   background-color:#EEEEEE;
+   border-style:solid;
+   border-color:#31AAFF;
+   border-width:1px;
+   cursor:hand;
+}
